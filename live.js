@@ -1,9 +1,6 @@
 //未加载数据时不显示
 $('.container').hide(0)
 var liveArr = []
-function cb(a){
-    console.log(a)
-}
 //处理拿到的函数
 function live_arr(arr){
     var cl=arr.cctv.person.length

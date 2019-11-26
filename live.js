@@ -122,29 +122,6 @@ function scene(){
         setArr[num] = liveArr[num][big]
     }
 
-    function chou_end(num){
-        console.log(setArr)
-        for(var i = 0;i<setArr.length;i++){
-            if(setArr[i]==''){
-                return
-            }else{
-            var comp = i==0||i==3?'央视网':i==1||i==4?'央广网':i==2||i==5?'国际在线':''
-            var html = '<div class="list_box">'+
-            '<div class="activeName">'+setArr[i].name+'</div>'+
-            '<div class="company">'+comp+'</div>'+
-            '<div class="department">'+setArr[i].dept+'</div>'+
-            '</div>'
-            $('.container').hide(0)
-            $('.switch').hide(0)
-            $('.active_box').hide(0)
-            $('.activeList').append(html).show(0)
-            $('.lihua').show(0)
-            activeId.push(parseInt(setArr[i].id))
-            }
-        }
-        var zhong = "http://app2.vote.cntv.cn/H5dati/JZJzj.jsp?cmd=zj&id="+activeId.join(',')+"&callback=cb"
-        $('body').append('<script src="'+zhong+'"></script>')
-    }
 
     function end(num){
         if(listH[num]+t[num]<=240){
@@ -155,7 +132,7 @@ function scene(){
             rotation_end(num)
             if(num==5){
                 $('.active').eq(num).animate({opacity:1},2000,function(){
-                    chou_end(num)
+                    
                 })
             }    
         })

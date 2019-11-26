@@ -1,8 +1,10 @@
+//未加载数据时不显示
 $('.container').hide(0)
 var liveArr = []
 function cb(a){
     console.log(a)
 }
+//处理拿到的函数
 function live_arr(arr){
     var cl=arr.cctv.person.length
     var yl=arr.ygw.person.length
@@ -16,7 +18,7 @@ function live_arr(arr){
     liveArr.push(cctv1,ygw1,gjzx1,cctv2,ygw2,gjzx2)
     scene()
 }
-
+//克隆后四个对象放到最后，实现无缝滚动
 function scene(){
     $('.container').show(0)
     for(var i=0;i<liveArr.length;i++){
@@ -42,7 +44,7 @@ function scene(){
     var swit = true
     var activeId=[]
 
-
+    //开始暂停
     $('.switch').click(function(){
         if(swit){
             if(isScoll){
@@ -72,7 +74,7 @@ function scene(){
             }
         }
     })
-
+    //滚动
     function play(num){
         listH[num] = $('.nameList').eq(num).height()
         setAction[num] = setInterval(function(){
@@ -86,6 +88,7 @@ function scene(){
             
         },60)
     }
+    //点击停止后逐渐停止
     function setStop(num){
         var ti = 1
         clearInterval(setAction[num])
